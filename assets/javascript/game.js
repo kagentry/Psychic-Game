@@ -2,6 +2,8 @@ var wins = 0;
 var losses = 0;
 var guess = 9;
 var tries = [];
+// get random letter for computer
+var compGuess = letters[Math.floor(Math.random() * letters.length)];
 
 var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
@@ -21,8 +23,7 @@ document.onkeyup = function(event){
 	// get user input
 	var userGuess = event.key;
 
-	// get random letter for computer
-	var compGuess = letters[Math.floor(Math.random() * letters.length)];
+	
 
 	// check if user input a letter 
 	if (userGuess === 'a' || userGuess === 'b' || userGuess === 'c' || userGuess === 'd' || userGuess === 'e' || userGuess === 'f' || userGuess === 'g' || userGuess === 'h' || userGuess === 'i' || userGuess === 'j' || userGuess === 'k' || userGuess === 'l' || userGuess === 'm' || userGuess === 'n' || userGuess === 'o' || userGuess === 'p' || userGuess === 'q' || userGuess === 'r' || userGuess === 's' || userGuess === 't' || userGuess === 'u' || userGuess === 'v' || userGuess === 'w' || userGuess === 'x' || userGuess === 'z' || userGuess === 'z'){
@@ -30,6 +31,7 @@ document.onkeyup = function(event){
 			wins++;
 			guess = 9;
 			out(tries);
+			compGuess = letters[Math.floor(Math.random() * letters.length)];
 		}
 		else if (guess > 0){
 			tries.push(userGuess);
@@ -39,6 +41,7 @@ document.onkeyup = function(event){
 			losses++;
 			guess = 9;
 			out(tries);
+			compGuess = letters[Math.floor(Math.random() * letters.length)];
 		}
 	}
 	// create html to be displayed on page for score
